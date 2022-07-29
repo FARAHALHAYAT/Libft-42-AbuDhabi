@@ -12,55 +12,78 @@
 
 #include "libft.h"
 
-int	ft_getstart(const char *s1, const char *set)
+static int	ft_check_start(char const *s1, char const *set)
 {
-	size_t	len;
-	size_t	i;
+	int		s;
+	int		t;
+	int		cnt;
 
-	len = ft_strlen(s1);
-	i = 0;
-	while (i < len)
+	s = 0;
+	while (s1[s] != '\0')
 	{
-		if (ft_strchr(set, s1[i]) == 0)
-			break ;
-		i++;
+		t = 0;
+		cnt = 0;
+		while (set[t] != '\0')
+		{
+			if (s1[s] != set[t])
+				cnt++;
+			t++;
+		}
+		if (cnt == t)
+			return (s);
+		s++;
 	}
-	return (i);
+	return (-1);
 }
 
-int	ft_getend(const char *s1, const char *set)
+static int	ft_check_end(char const *s1, char const *set)
 {
-	size_t	len;
-	size_t	i;
+	int		t;
+	int		e;
+	int		cnt;
 
-	len = ft_strlen(s1);
-	i = 0;
-	while (i < len)
+	e = (int)ft_strlen(s1) - 1;
+	while (e >= 0)
 	{
-		if (ft_strchr(set, s1[len - i - 1]) == 0)
-			break ;
-		i++;
+		t = 0;
+		cnt = 0;
+		while (set[t] != '\0')
+		{
+			if (s1[e] != set[t])
+				cnt++;
+			t++;
+		}
+		if (cnt == t)
+			return (e);
+		e--;
 	}
-	return (len - i);
+	return (-1);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char		*ft_strtrim(char const *s1, char const *set)
 {
-	int		start;
-	int		end;
-	char	*newstr;
+	int		s;
+	int		e;
+	int		t;
+	char	*ret;
 
-	if (s1 == NULL)
+	t = 0;
+	s = ft_check_start(s1, set);
+	e = ft_check_end(s1, set);
+	if (s == -1)
+	{
+		ret = (char*)malloc(sizeof(char));
+		ret[0] = 0;
+		return (ret);
+	}
+	ret = (char *)malloc(sizeof(char) * (e - s + 2));
+	if (ret == 0)
 		return (NULL);
-	if (set == NULL)
-		return (ft_strdup(s1));
-	start = ft_getstart(s1, set);
-	end = ft_getend(s1, set);
-	if (start >= end)
-		return (ft_strdup(""));
-	newstr = (char *)malloc(sizeof(char) * (end - start + 1) + 1);
-	if (newstr == NULL)
-		return (NULL);
-	ft_strlcpy(newstr, s1 + start, end - start + 1);
-	return (newstr);
+	while (t <= e - s)
+	{
+		ret[t] = s1[s + t];
+		t++;
+	}
+	ret[t] = '\0';
+	return (ret);
 }
