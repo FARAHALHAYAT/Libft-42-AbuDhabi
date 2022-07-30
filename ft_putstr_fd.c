@@ -18,10 +18,10 @@ void	ft_putstr_fd(char *s, int fd)
 
 	i = 0;
 	if (s == NULL || fd < 0)
-		return ;
-	while (s[i])
+		return (0);
+	while (s[i] != '\0')
 	{
-		ft_putchar_fd(s[i], fd);
+		write(fd, &s[i], 1);
 		i++;
 	}
 }
