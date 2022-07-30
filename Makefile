@@ -23,7 +23,6 @@ BONUS = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c\
 OBJS = ${SRCS:.c=.o}
 OBJSBONUS = ${BONUS:.c=.o}
 CC		= gcc
-RM		= rm -f
 CFLAGS = -Wall -Wextra -Werror
 .c.o:
 		${CC} ${CFLAGS} -g -c $< -o ${<:.c=.o}
@@ -33,7 +32,7 @@ bonus:	${OBJS} ${OBJSBONUS}
 		ar rcs ${NAME} ${OBJS} ${OBJSBONUS}
 all:	${NAME}
 clean:
-		${RM} ${OBJS} ${OBJSBONUS}
+	rm -rf *.o
 fclean:	clean
 		${RM} ${NAME}
 re:		fclean all
