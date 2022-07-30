@@ -34,6 +34,6 @@ all:	${NAME}
 clean:
 	rm -rf *.o
 fclean:	clean
-		${RM} ${NAME}
+		rm -rf *.o ${RM} ${NAME}
 re:		fclean all
 .PHONY: all bonus clean fclean re
