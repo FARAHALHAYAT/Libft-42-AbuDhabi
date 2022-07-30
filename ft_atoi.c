@@ -31,6 +31,10 @@ int	ft_atoi(const char *str)
 	}
 	while (str[c] >= '0' && str[c] <= '9')
 	{
+		if (s == -1 && res * s <= LLONG_MIN / 10)
+			return (0);
+		if (res >= LLONG_MAX / 10)
+			return (-1);
 		res = (str[c] - '0') + (res * 10);
 		c++;
 	}
