@@ -12,96 +12,55 @@
 
 #include "libft.h"
 
-static int	ft_check_start(char const *s1, char const *set)
+int	ft_getstart(const char *s1, const char *set)
 {
-	int		s;
-	int		t;
-	int		cnt;
+	size_t	len;
+	size_t	i;
 
-	s = 0;
-	while (s1[s] != '\0')
+	len = ft_strlen(s1);
+	i = 0;
+	while (i < len)
 	{
-		t = 0;
-		cnt = 0;
-		while (set[t] != '\0')
-		{
-			if (s1[s] != set[t])
-				cnt++;
-			t++;
-		}
-		if (cnt == t)
-			return (s);
-		s++;
+		if (ft_strchr(set, s1[i]) == 0)
+			break ;
+		i++;
 	}
-	return (-1);
+	return (i);
 }
 
-static int	ft_check_end(char const *s1, char const *set)
+int	ft_getend(const char *s1, const char *set)
 {
-	int		t;
-	int		e;
-	int		cnt;
+	size_t	len;
+	size_t	i;
 
-	e = (int)ft_strlen(s1) - 1;
-	while (e >= 0)
+	len = ft_strlen(s1);
+	i = 0;
+	while (i < len)
 	{
-		t = 0;
-		cnt = 0;
-		while (set[t] != '\0')
-		{
-			if (s1[e] != set[t])
-				cnt++;
-			t++;
-		}
-		if (cnt == t)
-			return (e);
-		e--;
+		if (ft_strchr(set, s1[len - i - 1]) == 0)
+			break ;
+		i++;
 	}
-	return (-1);
+	return (len - i);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
-{
-	int		s;
-	int		e;
-	int		t;
-	char	*ret;
-
-	t = 0;
-	s = ft_check_start(s1, set);
-	e = ft_check_end(s1, set);
-	if (s == -1)
-	{
-		ret = (char*)malloc(sizeof(char));
-		ret[0] = 0;
-		return (ret);
-	}
-	ret = (char *)malloc(sizeof(char) * (e - s + 2));
-	if (ret == 0)
-		return (NULL);
-	while (t <= e - s)
-	{
-		ret[t] = s1[s + t];
-		t++;
-	}
-	ret[t] = '\0';
-	return (ret);
-}
-			NEW
-			
-			
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t		len;
-	char		*tab;
+	int		start;
+	int		end;
+	char	*newstr;
 
-	if (!s1 || !set)
+	if (s1 == NULL)
 		return (NULL);
-	while (*s1 && ft_strchr(set, *s1))
-		s1++;
-	len = ft_strlen(s1);
-	while (len && ft_strchr(set, s1[len]))
-		len--;
-	tab = ft_substr((char *)s1, 0, len + 1);
-	return (tab);
+	if (set == NULL)
+		return (ft_strdup(s1));
+	start = ft_getstart(s1, set);
+	end = ft_getend(s1, set);
+	if (start >= end)
+		return (ft_strdup(""));
+	newstr = (char *)malloc(sizeof(char) * (end - start + 1) + 1);
+	if (newstr == NULL)
+		return (NULL);
+	ft_strlcpy(newstr, s1 + start, end - start + 1);
+	return (newstr);
 }

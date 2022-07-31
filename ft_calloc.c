@@ -17,8 +17,8 @@ void	*ft_calloc(size_t count, size_t size)
 	char	*r;
 
 	r = malloc(count * size);
-	if (!r || size > size * count)
-		return (NULL);
+	if (!r)
+		return (0);
 	ft_bzero(r, count * size);
 	return (r);
 }
