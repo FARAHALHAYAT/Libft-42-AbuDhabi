@@ -79,11 +79,12 @@ char	**ft_split(char const *s, char c)
 	unsigned int	nb_c;
 	unsigned int	row_len;
 
-	if (!splitted)
+	if (!s)
 		return (NULL);
 	nb_c = get_nb_cols(s, c);
 	splitted = malloc(sizeof(char *) * (nb_c + 1));
-
+	if (!splitted)
+		return (NULL);
 	row = (char *)s;
 	row_len = 0;
 	i = 0;
@@ -91,7 +92,7 @@ char	**ft_split(char const *s, char c)
 	{
 		get_row(&row, &row_len, c);
 		splitted[i] = malloc(sizeof(char) * (row_len + 1));
-		if (splitted[i] == NULL)
+		if (!(splitted[i]))
 			return (free_all_if_error(splitted));
 		ft_strlcpy(splitted[i], row, row_len + 1);
 		i++;
