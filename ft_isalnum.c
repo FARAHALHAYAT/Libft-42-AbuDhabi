@@ -6,7 +6,7 @@
 /*   By: fasharif <fasharif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 14:18:45 by fasharif          #+#    #+#             */
-/*   Updated: 2022/07/31 19:16:32 by fasharif         ###   ########.fr       */
+/*   Updated: 2022/08/01 15:23:44 by fasharif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isalnum(int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9'))
+	if ((ft_isalpha(c)) || (ft_isdigit(c)))
 		return (1);
 	return (0);
 }

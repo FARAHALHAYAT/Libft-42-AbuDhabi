@@ -6,7 +6,7 @@
 /*   By: fasharif <fasharif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 16:09:33 by fasharif          #+#    #+#             */
-/*   Updated: 2022/07/31 18:50:01 by fasharif         ###   ########.fr       */
+/*   Updated: 2022/08/01 14:35:01 by fasharif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putendl_fd(char *s, int fd)
 
 	i = 0;
 	if (!s || fd < 0)
-		return (0);
+		return ;
 	while (s[i] != '\0')
 	{
 		write(fd, &s[i], 1);
