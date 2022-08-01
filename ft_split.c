@@ -79,10 +79,11 @@ char	**ft_split(char const *s, char c)
 	unsigned int	nb_c;
 	unsigned int	row_len;
 
+	if (!splitted)
+		return (NULL);
 	nb_c = get_nb_cols(s, c);
 	splitted = malloc(sizeof(char *) * (nb_c + 1));
-	if (splitted == NULL)
-		return (NULL);
+
 	row = (char *)s;
 	row_len = 0;
 	i = 0;
