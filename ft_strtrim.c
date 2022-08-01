@@ -50,16 +50,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		end;
 	char	*newstr;
 
-	if (s1 == NULL)
+	if (!s1 || !set)
 		return (NULL);
-	if (set == NULL)
-		return (ft_strdup(s1));
-	start = ft_getstart(s1, set);
-	end = ft_getend(s1, set);
+	start = ft_getstart((char *)s1, (char *)set);
+	end = ft_getend(char *)s1, (char *)set);
 	if (start >= end)
 		return (ft_strdup(""));
 	newstr = (char *)malloc(sizeof(char) * (end - start + 1) + 1);
-	if (newstr == NULL)
+	if (!newstr)
 		return (NULL);
 	ft_strlcpy(newstr, s1 + start, end - start + 1);
 	return (newstr);
