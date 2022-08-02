@@ -35,7 +35,7 @@ int	ft_atoi(const char *str)
 			return (-1);
 		else if (res * s < -2147483648)
 			return (0);
-		elsa
+		else
 			res = (str[c] - '0') + (res * 10);
 		c++;
 	}
