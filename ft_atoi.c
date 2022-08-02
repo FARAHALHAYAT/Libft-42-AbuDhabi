@@ -26,7 +26,7 @@ int	ft_atoi(const char *str)
 	while (str[c] == '+' || str[c] == '-')
 	{
 		if (str[c] == '-')
-			s = -1;
+			s *= -1;
 		c++;
 	}
 	while (str[c] >= '0' && str[c] <= '9')
@@ -35,7 +35,8 @@ int	ft_atoi(const char *str)
 			return (-1);
 		else if (res * s < -2147483648)
 			return (0);
-		res = (str[c] - '0') + (res * 10);
+		elsa
+			res = (str[c] - '0') + (res * 10);
 		c++;
 	}
 	return (res * s);
