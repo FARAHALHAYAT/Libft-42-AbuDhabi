@@ -10,6 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+** DESCRIPTION:
+** 		The memchr() function locates the first occurrence of c (converted to an
+**	unsigned char) in string s.
+*/
+
 #include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
