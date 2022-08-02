@@ -10,17 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+** DESCRIPTION:
+** 		The memset() function writes n bytes of value c (converted to an
+**	unsigned char) to the string s.
+*/
+
 #include "libft.h"
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned char	*p;
+	size_t i;
 
-	p = b;
-	while (len-- > 0)
+	i = 0;
+	while (i < len)
 	{
-		*p = (unsigned char) c;
-		p++;
+		((unsigned char *)b)[i] = c;
+		i++;
 	}
 	return (b);
 }
