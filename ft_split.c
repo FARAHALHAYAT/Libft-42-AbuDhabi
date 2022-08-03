@@ -12,91 +12,71 @@
 
 #include "libft.h"
 
-static char	**free_all_if_error(char **array)
+int	num_words(char *str)
 {
-	unsigned int	i;
+	int	i;
+	int	n;
 
 	i = 0;
-	while (array[i])
+	n = 0;
+	while (str[i])
 	{
-		free(array[i]);
-		i++;
-	}
-	free(array);
-	return (NULL);
-}
-
-static unsigned int	get_nb_cols(char const *s, char c)
-{
-	unsigned int	i;
-	unsigned int	nb_cols;
-
-	nb_cols = 0;
-	if (!s[0])
-		return (0);
-	i = 0;
-	while (s[i] && s[i] == c)
-		i++;
-	while (s[i])
-	{
-		if (s[i] == c)
+		while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+			i++;
+		if (str[i])
 		{
-			nb_cols++;
-			while (s[i] && s[i] == c)
+			while (str[i] && str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
 				i++;
-			continue ;
+			n++;
 		}
-		i++;
 	}
-	if (s[i - 1] != c)
-		nb_cols++;
-	return (nb_cols);
+	return (n);
 }
 
-static void	get_row(char **row, unsigned int *row_len, char c)
+int	word_len(char *str, int i)
 {
-	unsigned int	i;
-
-	*row += *row_len;
-	*row_len = 0;
-	i = 0;
-	while (**row && **row == c)
-		(*row)++;
-	while ((*row)[i])
+	int	c;
+	
+	c = 0;
+	while (str[i] && str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
 	{
-		if ((*row)[i] == c)
-			return ;
-		(*row_len)++;
 		i++;
+		c++;
 	}
+	return (c);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char			**splitted;
-	char			*row;
-	unsigned int	i;
-	unsigned int	nb_c;
-	unsigned int	row_len;
-
-	if (!s)
-		return (NULL);
-	nb_c = get_nb_cols(s, c);
-	splitted = malloc(sizeof(char *) * (nb_c + 1));
-	if (!splitted)
-		return (NULL);
-	row = (char *)s;
-	row_len = 0;
+	char	**sp;
+	int	i;
+	int	j;
+	int	k;
+	
+	sp = (char **)malloc((num_words(str) + 1) * sizeof(char *));
+	if (!sp)
+		return(NULL);
 	i = 0;
-	while (i < nb_c)
+	j = 0;
+	while (str[i])
 	{
-		get_row(&row, &row_len, c);
-		splitted[i] = malloc(sizeof(char) * (row_len + 1));
-		if (!(splitted[i]))
-			return (free_all_if_error(splitted));
-		ft_strlcpy(splitted[i], row, row_len + 1);
-		i++;
+		while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+			i++;
+		if (str[i])
+		{
+			sp[j] = (char *)malloc((num_words(str) + 1) * sizeof(char));
+			if (!sp[j])
+				return (NULL);
+			while (str[i] && str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
+			{
+				sp[j][k] = str[i];
+				i++;
+				k++;
+			}
+			sp[j][k] = '\0';
+			j++;
+		}
+		sp[j] = '\0';
+		return (sp);
 	}
-	splitted[i] = NULL;
-	return (splitted);
 }
