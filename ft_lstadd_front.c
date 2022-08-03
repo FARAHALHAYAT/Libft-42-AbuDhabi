@@ -6,7 +6,7 @@
 /*   By: fasharif <farahoflife@hotmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 17:16:05 by fasharif          #+#    #+#             */
-/*   Updated: 2022/07/23 17:17:32 by fasharif         ###   ########.fr       */
+/*   Updated: 2022/08/02 14:18:36 by fasharif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (alst)
+	if (lst)
 	{
-		if (*alst)
-			new->next = *alst;
-		*alst = new;
+		if (*lst)
+			new->next = *lst;
+		*lst = new;
 	}
 }

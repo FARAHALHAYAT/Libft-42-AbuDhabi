@@ -6,17 +6,9 @@
 /*   By: fasharif <fasharif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 15:44:29 by fasharif          #+#    #+#             */
-/*   Updated: 2022/07/26 17:16:48 by fasharif         ###   ########.fr       */
+/*   Updated: 2022/08/02 14:14:44 by fasharif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-** DESCRIPTION:
-** 		The calloc() function contiguously allocates enough space for count
-**	objects that are size bytes of memory each and returns a pointer to the
-**	allocated memory. The allocated memory is filled with bytes of value
-**	zero.
-*/
 
 #include "libft.h"
 

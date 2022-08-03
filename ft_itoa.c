@@ -6,13 +6,13 @@
 /*   By: fasharif <fasharif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 18:19:25 by fasharif          #+#    #+#             */
-/*   Updated: 2022/07/31 19:58:38 by fasharif         ###   ########.fr       */
+/*   Updated: 2022/08/03 14:14:11 by fasharif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_len(long n)
+int	ft_len(long n)
 {
 	int	len;
 
@@ -30,7 +30,7 @@ int			ft_len(long n)
 	return (len);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	long	nb;

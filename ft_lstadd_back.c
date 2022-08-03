@@ -6,7 +6,7 @@
 /*   By: fasharif <fasharif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 17:18:02 by fasharif          #+#    #+#             */
-/*   Updated: 2022/07/28 16:37:18 by fasharif         ###   ########.fr       */
+/*   Updated: 2022/08/03 14:17:04 by fasharif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,16 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last;
 
-	if (alst)
+	if (!lst)
+		return ;
+	if (lst)
 	{
-		if (*alst)
+		if (*lst)
 		{
-			last = ft_lstlast(*alst);
+			last = ft_lstlast(*lst);
 			last->next = new;
 		}
 		else
-			*alst = new;
+			*lst = new;
 	}
 }
-

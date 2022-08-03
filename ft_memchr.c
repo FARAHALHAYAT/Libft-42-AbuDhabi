@@ -3,18 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fasharif <farahoflife@hotmail.com>         +#+  +:+       +#+        */
+/*   By: fasharif <fasharif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 17:47:37 by fasharif          #+#    #+#             */
-/*   Updated: 2022/07/23 17:02:48 by fasharif         ###   ########.fr       */
+/*   Updated: 2022/08/03 16:54:19 by fasharif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-** DESCRIPTION:
-** 		The memchr() function locates the first occurrence of c (converted to an
-**	unsigned char) in string s.
-*/
 
 #include "libft.h"
 

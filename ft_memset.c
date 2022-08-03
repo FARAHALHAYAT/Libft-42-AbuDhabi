@@ -6,15 +6,9 @@
 /*   By: fasharif <fasharif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:15:31 by fasharif          #+#    #+#             */
-/*   Updated: 2022/07/26 16:34:12 by fasharif         ###   ########.fr       */
+/*   Updated: 2022/08/03 16:53:58 by fasharif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-** DESCRIPTION:
-** 		The memset() function writes n bytes of value c (converted to an
-**	unsigned char) to the string s.
-*/
 
 #include "libft.h"
 
