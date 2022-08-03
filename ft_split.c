@@ -81,3 +81,19 @@ char	**ft_split(char const *s, char c)
 	sp[j] = '\0';
 	return (sp);
 }
+
+int	main()
+{
+	char	**sp;
+	int	i;
+	
+	sp = ft_split("     Farah   Is   the     best   ???        ");
+	i = 0;
+	while (i < 5)
+	{
+		printf ("sp[%d] = %s\n", i, sp[i]);
+		i++;
+	}
+	return (0);
+}
+	
