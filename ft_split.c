@@ -46,7 +46,7 @@ int	word_len(char *str, int i)
 	return (c);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *str)
 {
 	char	**sp;
 	int	i;
