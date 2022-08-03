@@ -60,6 +60,7 @@ char	**ft_split(char const *s, char c)
 	j = 0;
 	while (str[i])
 	{
+		k = 0;
 		while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
 			i++;
 		if (str[i])
@@ -76,7 +77,7 @@ char	**ft_split(char const *s, char c)
 			sp[j][k] = '\0';
 			j++;
 		}
-		sp[j] = '\0';
-		return (sp);
 	}
+	sp[j] = '\0';
+	return (sp);
 }
