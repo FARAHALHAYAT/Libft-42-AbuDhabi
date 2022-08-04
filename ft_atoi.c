@@ -6,7 +6,7 @@
 /*   By: fasharif <fasharif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 11:48:50 by fasharif          #+#    #+#             */
-/*   Updated: 2022/08/03 14:13:12 by fasharif         ###   ########.fr       */
+/*   Updated: 2022/08/04 14:44:15 by fasharif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ int	ft_atoi(const char *str)
 	}
 	while (str[c] >= '0' && str[c] <= '9')
 	{
+		if (res > 20 && s == 1)
+			return (0);
+		if (res > 20 && s == -1)
+			return (-1);
 		res = (str[c] - '0') + (res * 10);
 		c++;
 	}

@@ -6,7 +6,7 @@
 /*   By: fasharif <fasharif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 19:21:52 by fasharif          #+#    #+#             */
-/*   Updated: 2022/08/03 16:58:11 by fasharif         ###   ########.fr       */
+/*   Updated: 2022/08/04 18:29:13 by fasharif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != '\0' && c != *s)
+	if(!s)
+		return (NULL);
+	while (*s != '\0' && (unsigned char)c != *s)
 		s++;
-	if (c == *s)
+	if ((unsigned char)c == *s)
 		return ((char *)s);
-	return (0);
+	return (NULL);
 }
