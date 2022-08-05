@@ -77,3 +77,28 @@ int	ft_atoi(const char *str)
 	}
 	return ((int)check_overflow(data, minus));
 }
+
+
+
+#include "libft.h"
+
+int ft_atoi(const char *str)
+{
+    int     minus;
+    long    res;
+
+		minus = 1;
+    res = 0;
+    while ((9 <= *str && *str <= 13) || *str == ' ')
+			++str;
+    if (*str == '+' || *str == '-')
+			if (*str++ == '-')
+				minus *= -1;
+    while ('0' <= *str && *str <= '9')
+    {
+			res = res * 10 + (*str++ - '0');
+			if (res < 0)
+				return ((minus + 1) / -2);
+    }
+    return (res * minus);
+}
