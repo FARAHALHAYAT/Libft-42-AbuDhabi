@@ -11,3 +11,5 @@ https://www.learn-c.org/en/Linked_lists
 [alelievr/libft-unit-test](https://github.com/alelievr/libft-unit-test)
 
 [GitHub - jtoty/Libftest](https://github.com/jtoty/Libftest)
+
+https://velog.io/@choibyeol/42%EC%84%9C%EC%9A%B8-%EB%9D%BC%ED%94%BC%EC%8B%A0-%ED%9B%84%EA%B8%B0
