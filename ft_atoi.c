@@ -40,3 +40,40 @@ int	ft_atoi(const char *str)
 	}
 	return (res * s);
 }
+
+#include <limits.h>
+
+int	check_overflow(unsigned long long num, int minus)
+{
+	if (num > LLONG_MAX - 1 && minus == -1)
+		return (0);
+	if (num > LLONG_MAX && minus == 1)
+		return (-1);
+	return (num * minus);
+}
+
+int	ft_atoi(const char *str)
+{
+	int					minus;
+	int					i;
+	unsigned long long	data;
+
+	i = 0;
+	minus = 1;
+	while (str[i] == ' ' || (9 <= str[i] && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			minus = -1;
+		i++;
+	}
+	data = 0;
+	while ('0' <= str[i] && str[i] <= '9')
+	{	
+		data *= 10;
+		data += str[i] - '0';
+		i++;
+	}
+	return ((int)check_overflow(data, minus));
+}
