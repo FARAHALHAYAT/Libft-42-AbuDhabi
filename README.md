@@ -13,3 +13,5 @@ https://www.learn-c.org/en/Linked_lists
 [GitHub - jtoty/Libftest](https://github.com/jtoty/Libftest)
 
 https://velog.io/@choibyeol/42%EC%84%9C%EC%9A%B8-%EB%9D%BC%ED%94%BC%EC%8B%A0-%ED%9B%84%EA%B8%B0
+
+for atoi https://github.com/nmafa/libft/blob/master/ft_atoi.c
