@@ -6,7 +6,7 @@
 /*   By: fasharif <fasharif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 17:27:19 by fasharif          #+#    #+#             */
-/*   Updated: 2022/07/29 17:55:34 by fasharif         ###   ########.fr       */
+/*   Updated: 2022/08/07 16:08:29 by fasharif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t  i;
-	int     pos;
+	size_t	i;
+	int		pos;
 
 	i = 0;
-	if (src == NULL && dst == NULL)
+	if (!src && !dst)
 		return (dst);
 	if (dst < src)
 	{

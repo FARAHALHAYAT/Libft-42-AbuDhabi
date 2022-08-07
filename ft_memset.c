@@ -6,7 +6,7 @@
 /*   By: fasharif <fasharif@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 18:15:31 by fasharif          #+#    #+#             */
-/*   Updated: 2022/08/03 16:53:58 by fasharif         ###   ########.fr       */
+/*   Updated: 2022/08/05 08:35:40 by fasharif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < len)
