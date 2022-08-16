@@ -34,9 +34,9 @@ int	ft_atoi(const char	*str)
 	while ((*str != '\0') && ('0' <= *str) && (*str <= '9'))
 	{
 		n = (n * 10) + (*str - '0');
-		if (n > 2147483647 && sign == 1)
+		if (n > 9223372036854775807 && sign == 1)
 			return (-1);
-		if (n > 2147483648 && sign == -1)
+		if (n > 9223372036854775807 && sign == -1)
 			return (0);
 		str++;
 	}
